@@ -1,8 +1,8 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import About from "./about";
-import Service from "./service";
+
 import Appointment from "./appointment";
 import Home from "./home";
 
@@ -14,8 +14,12 @@ import Navbar from "../common/navbar";
 import Footer from "../common/footer";
 import News from "../common/newsletter";
 import Doctor from "./doctors";
-
+import Gallery from "./gallery";
+import Testimonial from "./testimonial";
 function Main() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
     return (
         <Router>
             <div className="app-container">
@@ -30,6 +34,8 @@ function Main() {
                     <Route path="/product" element={<Product />} />
                     <Route path="/contact" element={<ContactPage />} />
                     <Route path="/branch" element={<HospitalBranches />} />
+                    <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/testimonial" element={<Testimonial />} />
                     <Route path="*" element={<Home />} />
                 </Routes>
                 <News/>
