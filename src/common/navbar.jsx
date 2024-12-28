@@ -14,7 +14,8 @@ function Navbar() {
         <>
             <nav className="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
                 <Link className="navbar-brand p-0" to="/">
-                    <h1 className="m-0 text-primary">Viscera</h1>
+                    {/* Replace the heading with the uploaded logo */}
+                    <img src="/asset/img/logo.png" alt="Viscera Logo" style={{ height: '80px' }} />
                 </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span className="navbar-toggler-icon" />
@@ -39,7 +40,7 @@ function Navbar() {
                         </div>
                     </div>
                     
-                    <Link className="btn btn-primary py-2 px-4 ms-3" to="/appointment" onClick={closeNavbar}>Appointment</Link>
+                    <Link className="btn btn-primary py-2 px-4 ms-3" to="/appointment" onClick={closeNavbar} style={{ backgroundColor: '#afab2e' }}>Appointment</Link>
                 </div>
             </nav>
         </>

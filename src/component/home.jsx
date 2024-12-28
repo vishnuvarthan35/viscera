@@ -12,6 +12,7 @@ import About from "./about";
 import Appointment from "./appointment";
 
 import Doctor from "./doctors";
+import HospitalBranches from "./branch";
 
 
 
@@ -28,8 +29,8 @@ function Home() {
       <Contentthree />
       <About />
       <Appointment />
-     
       <Doctor />
+      <HospitalBranches/>
     
 
     </>

@@ -1,7 +1,7 @@
 /******* Customized Bootstrap ********/
 
-$primary: #06A3DA;
-$secondary: #F57E57;
+$primary: #c7bf34;
+$secondary: #345fa6;
 $light: #EEF9FF;
 $dark: #091E3E;
 
@@ -26,3 +26,16 @@ $link-decoration: none;
 $enable-negative-margins: true;
 
 @import "bootstrap/scss/bootstrap";
+
+// Set all text color to #345fa6
+body, 
+h1, h2, h3, h4, h5, h6, 
+p, 
+a, 
+span, 
+div, 
+label, 
+input, 
+textarea {
+    color: #345fa6; /* Updated text color */
+}

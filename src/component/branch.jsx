@@ -1,156 +1,180 @@
 import React, { useEffect } from "react";
-import { useLocation } from 'react-router-dom';
-import { 
-  Card, 
-  CardContent, 
-  Typography, 
-  Grid, 
-  Button, 
+import { useLocation } from "react-router-dom";
+import {
+  Card,
+  CardContent,
+  Typography,
+  Grid,
+  Button,
   Container,
-  CardMedia,
-  Box 
-} from '@mui/material';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import PhoneIcon from '@mui/icons-material/Phone';
-import BranchHead from './heading/branchhead';
+  Box,
+  Divider,
+} from "@mui/material";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import BranchHead from "./heading/branchhead";
 
-// Sample data - In a real application, this would typically come from an API
 const branches = [
   {
     id: 1,
-    name: "Central Hospital",
-    address: "123 Main Street, Cityville",
-    phone: "123-456-7890",
-    image: "https://images.unsplash.com/photo-1632833239869-a37e3a5806d2",
-    specialties: ["Cardiology", "Neurology", "Pediatrics"],
+    name: "Madurai Branch",
+    address: "No.29Aa, Vaithiyanathapuram, Ellis Nagar, SS colony, Madurai, Tamil Nadu, India - 625016",
+    timings: "10 AM to 8 PM",
+    days: "Monday, Tuesday, Thursday, Friday (All weeks)",
+  },
+  {
+    id: 4,
+    name: "Chennai Branch",
+    address: "Golden Jubilee Flats, 162/9, Padikuppam Road, Annanagar West, Chennai, Tamil Nadu, India - 600040",
+    timings: "10 AM to 8 PM",
+    days: "Saturday and Sunday",
   },
   {
     id: 2,
-    name: "Northside Clinic",
-    address: "456 North Ave, Townsville",
-    phone: "987-654-3210",
-    image: "https://images.unsplash.com/photo-1587351021355-a479a299d2f9",
-    specialties: ["Orthopedics", "Dermatology", "Internal Medicine"],
+    name: "Trichy Branch",
+    address: "Kalpana Lodge, Central Bus Stand Opp., Trichy, Tamil Nadu, India - 620001",
+    timings: "10 AM to 8 PM",
+    days: "Wednesday (All weeks)",
   },
   {
     id: 3,
-    name: "Lakeside Medical",
-    address: "789 Lake Road, Suburbia",
-    phone: "555-555-5555",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d",
-    specialties: ["Ophthalmology", "ENT", "Dental Care"],
+    name: "Coimbatore Branch",
+    address: "Haripriya Hotel, Railway Junction Opp., Coimbatore, Tamil Nadu, India - 641018",
+    timings: "10 AM to 8 PM",
+    days: "Wednesday (Alternate weeks)",
+  },
+  {
+    id: 5,
+    name: "Kerala Branch",
+    address: "Specific location not provided",
+    timings: "10 AM to 8 PM",
+    days: "Saturday and Sunday (Alternate weeks)",
   },
 ];
 
 const HospitalBranches = () => {
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
+  const isHomePage = location.pathname === "/";
 
   const handleContactClick = (branchId) => {
-    // Handle contact button click
-    console.log(`Contact clicked for branch ${branchId}`);
+    // Define a mapping of branch IDs to phone numbers
+    const phoneNumbers = {
+      1: "+918925168697", // Madurai Branch
+      2: "+918925168698", // Trichy Branch
+      3: "+918925168699", // Coimbatore Branch
+      4: "+918925168700", // Chennai Branch
+      5: "+918925168701", // Kerala Branch
+    };
+
+    // Get the phone number based on the branch ID
+    const phoneNumber = phoneNumbers[branchId] || "+918925168697"; // Default number if branchId not found
+    window.location.href = `tel:${phoneNumber}`;
   };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <>
       {!isHomePage && <BranchHead />}
 
-      <Container maxWidth="lg" sx={{ py: 6, mb: 8 }}>
-        <Box mb={6}>
-          <Typography 
-            variant="h3" 
-            component="h1" 
-            align="center" 
+      {/* Page Header */}
+      <Container maxWidth="lg" sx={{ py: 6 }}>
+        <Box textAlign="center" mb={6}>
+          <Typography
+            variant="h3"
+            component="h1"
             gutterBottom
-            sx={{ fontWeight: 'bold', color: '#2c3e50' }}
+            sx={{
+              fontWeight: "bold",
+              background: "linear-gradient(rgba(206, 197, 22, 0.7), rgba(190, 182, 47, 0.85))",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
           >
-            Our Hospital Branches
+            Our Clinic Branches
           </Typography>
-          <Typography 
-            variant="h6" 
-            align="center" 
-            color="text.secondary"
-            sx={{ maxWidth: '800px', mx: 'auto', mb: 4 }}
-          >
-            Providing quality healthcare services across multiple locations
+          <Typography variant="h6" color="text.secondary" sx={{ maxWidth: "700px", mx: "auto" }}>
+            Experience quality healthcare services at multiple locations tailored to your needs.
           </Typography>
         </Box>
 
+        {/* Branch Details */}
         <Grid container spacing={4}>
           {branches.map((branch) => (
             <Grid item xs={12} sm={6} md={4} key={branch.id}>
-              <Card 
-                sx={{ 
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  transition: '0.3s',
-                  '&:hover': {
-                    transform: 'translateY(-5px)',
-                    boxShadow: 5,
-                  }
+              <Card
+                sx={{
+                  height: '400px',
+                  border: "1px solid rgba(39, 84, 142, 0.4)",
+                  borderRadius: 2,
+                  boxShadow: "none",
+                  transition: "0.3s",
+                  "&:hover": {
+                    boxShadow: 6,
+                    transform: "translateY(-5px)",
+                  },
                 }}
               >
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={branch.image}
-                  alt={branch.name}
-                  sx={{ objectFit: 'cover' }}
-                />
-                <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography variant="h5" component="h2" gutterBottom>
+                <CardContent>
+                  {/* Branch Name */}
+                  <Typography
+                    variant="h5"
+                    component="h2"
+                    sx={{
+                      fontWeight: "bold",
+                      color: "rgba(39, 84, 142, 0.9)",
+                      mb: 2,
+                    }}
+                  >
                     {branch.name}
                   </Typography>
-                  
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                    <LocationOnIcon sx={{ mr: 1, color: 'primary.main' }} />
+
+                  {/* Address Section */}
+                  <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                    <LocationOnIcon sx={{ mr: 1, color: "rgba(39, 84, 142, 0.9)" }} />
                     <Typography variant="body2" color="text.secondary">
                       {branch.address}
                     </Typography>
                   </Box>
 
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <PhoneIcon sx={{ mr: 1, color: 'primary.main' }} />
+                  <Divider sx={{ my: 2 }} />
+
+                  {/* Timings Section */}
+                  <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                    <AccessTimeIcon sx={{ mr: 1, color: "rgba(39, 84, 142, 0.9)" }} />
                     <Typography variant="body2" color="text.secondary">
-                      {branch.phone}
+                      <strong>Timings:</strong> {branch.timings}
                     </Typography>
                   </Box>
 
-                  <Typography variant="subtitle2" color="primary" gutterBottom>
-                    Specialties:
-                  </Typography>
-                  <Box sx={{ mb: 2 }}>
-                    {branch.specialties.map((specialty, index) => (
-                      <Typography 
-                        key={index} 
-                        variant="body2" 
-                        color="text.secondary"
-                        component="span"
-                        sx={{ 
-                          mr: 1,
-                          display: 'inline-block',
-                          backgroundColor: 'rgba(0, 0, 0, 0.08)',
-                          padding: '2px 8px',
-                          borderRadius: '12px',
-                          marginBottom: '4px'
-                        }}
-                      >
-                        {specialty}
-                      </Typography>
-                    ))}
+                  <Divider sx={{ my: 2 }} />
+
+                  {/* Days Section */}
+                  <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                    <CalendarTodayIcon sx={{ mr: 1, color: "rgba(39, 84, 142, 0.9)" }} />
+                    <Typography variant="body2" color="text.secondary">
+                      <strong>Available:</strong> {branch.days}
+                    </Typography>
                   </Box>
 
-                  <Button 
-                    variant="contained" 
-                    color="primary" 
+                  {/* Contact Button */}
+                  <Button
+                    variant="contained"
                     fullWidth
+                    sx={{
+                      mt: 3,
+                      background: "linear-gradient(rgba(206, 197, 22, 0.7), rgba(190, 182, 47, 0.85))",
+                      color: "white",
+                      "&:hover": {
+                        background: "rgba(39, 84, 142, 0.9)",
+                      },
+                    }}
                     onClick={() => handleContactClick(branch.id)}
-                    sx={{ mt: 'auto', textTransform: 'none', borderRadius: '8px' }}
                   >
-                    Contact This Branch
+                    Contact Branch
                   </Button>
                 </CardContent>
               </Card>

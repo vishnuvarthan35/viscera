@@ -8,7 +8,7 @@ import Service from "./service";
 function About() {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
-  const textColorStyle = { color: "#333" }; 
+  const textColorStyle = { color: "#345da2" }; 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -21,14 +21,14 @@ function About() {
             <div className="row g-5">
               <div className="col-lg-7">
                 <div className="section-title mb-4">
-                  <h5 className="position-relative d-inline-block text-primary text-uppercase">About Us</h5>
+                  <h5 className="position-relative d-inline-block" style={{ color: "#345da2" }}><strong>About Us</strong></h5>
                   <h1 className="mb-0">Your Trusted Holistic Wellness Center</h1>
                 </div>
-                <h4 className="text-body mb-4">
-                  Where ancient wisdom meets modern expertise for your wellness journey.
+                <h4 className="text-body mb-4" style={{ color: "#345da2"}}>
+                  Where holistic healing meets innovative care for your wellness journey.
                 </h4>
-                <p className="mb-4">
-                  At Viscera Naturals Clinic, we use the latest technology to provide the most advanced treatments and procedures to our patients. Our facilities are equipped with state-of-the-art equipment and our team of experts are trained in the most cutting-edge techniques.
+                <p className="mb-4" style={{ color: "#345da2" }}>
+                  At Viscera Naturals Clinic, we integrate advanced technology with personalized care to offer the best treatments and procedures for our patients. Our facilities are equipped with cutting-edge technology, and our team of experts is dedicated to providing exceptional service.
                 </p>
                 <div className="row g-3">
                   <div className="col-sm-6 wow zoomIn" data-wow-delay="0.3s">
@@ -43,6 +43,7 @@ function About() {
                 <Link 
                   to="/appointment" 
                   className="btn btn-primary py-3 px-5 mt-4 wow zoomIn" 
+                  style={{ backgroundColor: '#2b579d' }}
                   data-wow-delay="0.6s"
                 >
                   Make Appointment

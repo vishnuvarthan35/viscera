@@ -1,7 +1,6 @@
-/********** Template CSS **********/
 :root {
-    --primary: #06A3DA;
-    --secondary: #F57E57;
+    --primary: #afab2e; /* Updated yellowish-green color */
+    --secondary: #27548e;
     --light: #EEF9FF;
     --dark: #091E3E;
 }
@@ -89,8 +88,6 @@ h6,
     z-index: 99;
 }
 
-
-
 .navbar-light .navbar-nav .nav-link {
     font-family: 'Jost', sans-serif;
     padding: 35px 15px;
@@ -140,6 +137,8 @@ h6,
 .carousel-control-prev,
 .carousel-control-next {
     width: 10%;
+    background: none;
+    border: none;
 }
 
 .carousel-control-prev-icon,
@@ -181,17 +180,76 @@ h6,
 }
 
 .hero-header {
-    background: linear-gradient(rgba(9, 30, 62, .85), rgba(9, 30, 62, .85)), url(../img/carousel-1.jpg) center center no-repeat;
+    background: linear-gradient(rgba(206, 197, 22, 0.7), rgba(190, 182, 47, 0.85)), url(../img/carousel-1.jpg) center center no-repeat;
     background-size: cover;
 }
-
 .bg-appointment {
-    background: linear-gradient(rgba(9, 30, 62, .85), rgba(9, 30, 62, .85)), url(../img/carousel-1.jpg) center center no-repeat;
+    background: linear-gradient(rgba(206, 197, 22, 0.7), rgba(190, 182, 47, 0.85)), url(../img/carousel-1.jpg) center center no-repeat;
     background-size: cover;
 }
 
 .appointment-form {
-    background: rgba(6, 163, 218, .7);
+    background: rgba(39, 84, 142, 0.9); /* Deep blue with transparency */
+    color: #fff; /* Ensures text is readable over the background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds depth */
+}
+
+button {
+    background: #dedba5; /* Yellowish-green for buttons */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: #beb62f; /* Apply the yellow-green to headings */
+}
+
+a {
+    color: #beb62f;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #a69f29; /* Adds hover effect for links */
+}
+
+body {
+    background: #f7f7f7; /* Neutral background for contrast */
+    color: #333; /* Text color for readability */
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Form Input Styling */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input:focus, textarea:focus {
+    border-color: #27548e; /* Highlight input borders with deep blue */
+    outline: none;
+}
+
+label {
+    color: #27548e; /* Use deep blue for form labels */
+    font-weight: bold;
 }
 
 .service-item img,
@@ -230,8 +288,8 @@ h6,
     background-size: cover;
 }
 
-.offer-text {
-    background: rgba(6, 163, 218, .85);
+offer-text {
+    background: rgba(39, 84, 142, .85);
 }
 
 .price-carousel .owl-nav {
@@ -241,76 +299,48 @@ h6,
     top: calc(50% - 22.5px);
     left: -22.5px;
     display: flex;
-    justify-content: space-between;
-    opacity: 0;
-    transition: .5s;
+    justify-content: space
 }
 
-.price-carousel:hover .owl-nav {
-    opacity: 1;
+.carousel-container {
+    background-color: #c3bb32;
+}
+.carousel-caption {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:linear-gradient(rgba(206, 197, 22, 0.7), rgba(190, 182, 47, 0.85)) /* Updated background color */
+    
+}
+/* Style for the "Appointment" button */
+.btn-appointment {
+    background-color:#315ea1; /* Bold orange for energy and action */
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 12px 30px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.price-carousel .owl-nav .owl-prev,
-.price-carousel .owl-nav .owl-next {
-    position: relative;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #FFFFFF;
-    background: var(--primary);
-    border-radius: 2px;
-    font-size: 22px;
-    transition: .5s;
+.btn-appointment:hover {
+    background-color: #091E3E; /* Slightly darker orange for hover */
+    transform: scale(1.05); /* Slight scale effect for emphasis */
 }
 
-.price-carousel .owl-nav .owl-prev:hover,
-.price-carousel .owl-nav .owl-next:hover {
-    background: var(--secondary);
+/* Style for the "Contact Us" button */
+.btn-contact {
+    background-color:#091E3E; /* Deep purple for trust and elegance */
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 12px 30px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.bg-testimonial {
-    background: url(../img/carousel-2.jpg) center center no-repeat;
-    background-size: cover;
-}
-
-.testimonial-carousel {
-    background: rgba(6, 163, 218, .85);
-}
-
-.testimonial-carousel .owl-nav {
-    position: absolute;
-    width: calc(100% + 46px);
-    height: 46px;
-    top: calc(50% - 23px);
-    left: -23px;
-    display: flex;
-    justify-content: space-between;
-    z-index: 1;
-}
-
-.testimonial-carousel .owl-nav .owl-prev,
-.testimonial-carousel .owl-nav .owl-next {
-    position: relative;
-    width: 46px;
-    height: 46px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #FFFFFF;
-    background: var(--primary);
-    border-radius: 2px;
-    font-size: 22px;
-    transition: .5s;
-}
-
-.testimonial-carousel .owl-nav .owl-prev:hover,
-.testimonial-carousel .owl-nav .owl-next:hover {
-    background: var(--secondary);
-}
-
-.testimonial-carousel .owl-item img {
-    width: 120px;
-    height: 120px;
+.btn-contact:hover {
+    background-color: #315ea1; /* Darker purple for hover */
+    transform: scale(1.05); /* Slight scale effect for emphasis */
 }

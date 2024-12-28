@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import TestHead from './heading/testhead';
 
 const Testimonial = () => {
@@ -26,7 +26,9 @@ const Testimonial = () => {
             text: "During my mother's extended stay, the staff went above and beyond to keep our family informed and comfortable. Their dedication to patient care is truly remarkable.",
         }
     ];
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextTestimonial = () => {
